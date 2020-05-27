@@ -24,7 +24,7 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   push: pushConfig,
   liveQuery: {
-    classNames: ['Users'] // List of classes to support for query subscriptions
+    classNames: ['_User','_Connections','_Message','_Installation'] // List of classes to support for query subscriptions
   }
  
 });
