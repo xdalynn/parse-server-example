@@ -20,10 +20,11 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || '29101997',
   clientKey: process.env.CLIENT_KEY || '2914810948190428CKEY', 
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',
+  masterKey: process.env.MASTER_KEY, // Don't forget to change to https if needed
   push: pushConfig,
   liveQuery: {
-    classNames: ['_User','Connections','Message','_Installation','Gift'] // List of classes to support for query subscriptions
+    classNames: ['_User','Connections','Message','_Installation','Gift', 'Calls'] // List of classes to support for query subscriptions
   }
  
 });
