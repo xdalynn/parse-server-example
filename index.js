@@ -26,7 +26,7 @@ var api = new ParseServer({
   // Don't forget to change to https if needed
   push: pushConfig,
   liveQuery: {
-    classNames: ['_User','Connections','Message','_Installation','Gift', 'Calls'] // List of classes to support for query subscriptions
+    classNames: ['_User','Connections','Message','_Installation','Gift', 'Calls', 'LiveMessage', 'Encounters'] // List of classes to support for query subscriptions
   }
  
 });
