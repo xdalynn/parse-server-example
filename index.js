@@ -10,6 +10,10 @@ var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
+var pushConfig = {};
+if (process.env.FCM_API_KEY) {
+    pushConfig['android'] = { apiKey: process.env.FCM_API_KEY || ''};
+}
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
@@ -18,9 +22,11 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || '2914810948190428', //Add your master key here. Keep it secret!
   clientKey: process.env.CLIENT_KEY || '2914810948190428CKEY', 
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  push: pushConfig,
   liveQuery: {
-    classNames: [] // List of classes to support for query subscriptions
+    classNames: [...] // List of classes to support for query subscriptions
   }
+ 
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
